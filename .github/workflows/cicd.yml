@@ -80,10 +80,12 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
       - name: change image tag
+          # git config user.name "aorjoa"
+          # git config user.email "root@aorjoa.link"
         run: |
           git --version
-          git config user.name "aorjoa"
-          git config user.email "root@aorjoa.link"
+          git config user.name "phubohdee"
+          git config user.email "phubohdee_bill@hotmail.com"
           sed -i -E "s/ghcr.io\/phubohdee\/devops-go-example.*$/ghcr.io\/phubohdee\/devops-go-example:${GITHUB_SHA}/" kube-gitops/deployment.yml
           git add kube-gitops/deployment.yml
           git commit -m "🤖 change docker image version to ${GITHUB_SHA}"
